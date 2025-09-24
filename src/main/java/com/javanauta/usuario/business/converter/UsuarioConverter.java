@@ -23,22 +23,29 @@ public class UsuarioConverter {
                 .build();
     }
 
-    public List<Endereco> paraListaEndereco(List<EnderecoDTO> enderecosDTO) {
-        return enderecosDTO.stream().map(this::paraEndereco).toList();
+    public List<Endereco> paraListaEndereco(List<EnderecoDTO> enderecoDTOS){
+        if (enderecoDTOS == null) {
+            return List.of();
+        }
+        return enderecoDTOS.stream().map(this::paraEndereco).toList();
     }
 
     public Endereco paraEndereco(EnderecoDTO enderecoDTO) {
         return Endereco.builder()
                 .rua(enderecoDTO.getRua())
                 .numero(enderecoDTO.getNumero())
+                .complemento(enderecoDTO.getComplemento())
                 .cidade(enderecoDTO.getCidade())
                 .estado(enderecoDTO.getEstado())
                 .cep(enderecoDTO.getCep())
                 .build();
     }
 
-    public List<Telefone> paraListaTelefone(List<TelefoneDTO> telefonesDTO) {
-        return telefonesDTO.stream().map(this::paraTelefone).toList();
+    public List<Telefone> paraListaTelefone(List<TelefoneDTO> telefoneDTO) {
+        if (telefoneDTO == null) {
+            return List.of();
+        }
+        return telefoneDTO.stream().map(this::paraTelefone).toList();
     }
 
     public Telefone paraTelefone(TelefoneDTO telefoneDTO) {
@@ -59,22 +66,29 @@ public class UsuarioConverter {
                 .build();
     }
 
-    public List<EnderecoDTO> paraListaEnderecoDTO(List<Endereco> endereco) {
-        return endereco.stream().map(this::paraEnderecoDTO).toList();
+    public List<EnderecoDTO> paraListaEnderecoDTO(List<Endereco> enderecoDTOS){
+        if (enderecoDTOS == null) {
+            return List.of();
+        }
+        return enderecoDTOS.stream().map(this::paraEnderecoDTO).toList();
     }
 
     public EnderecoDTO paraEnderecoDTO(Endereco enderecoDTO) {
         return EnderecoDTO.builder()
                 .rua(enderecoDTO.getRua())
                 .numero(enderecoDTO.getNumero())
+                .complemento(enderecoDTO.getComplemento())
                 .cidade(enderecoDTO.getCidade())
                 .estado(enderecoDTO.getEstado())
                 .cep(enderecoDTO.getCep())
                 .build();
     }
 
-    public List<TelefoneDTO> paraListaTelefoneDTO(List<Telefone> telefones) {
-        return telefones.stream().map(this::paraTelefoneDTO).toList();
+    public List<TelefoneDTO> paraListaTelefoneDTO(List<Telefone> telefone) {
+        if (telefone == null) {
+            return List.of();
+        }
+        return telefone.stream().map(this::paraTelefoneDTO).toList();
     }
 
     public TelefoneDTO paraTelefoneDTO(Telefone telefone) {
