@@ -10,7 +10,7 @@ import lombok.*;
 public class EnderecoDTO {
 
     private String rua;
-    private Long numero;
+    private Integer numero;
     private String complemento;
     private String cidade;
     private String estado;
